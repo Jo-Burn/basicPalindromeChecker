@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <!-- <script src="index.js"></script> -->
+    <link rel="icon" type="image/x-icon" href="faviconStandIn.png">
+    <title>Palindrome Checker</title>
+</head>
+<body>
+    <h1>Palindrome Checker</h1>
+   <form action="index.html" onsubmit="check()" name="form">
+    <input type="text" id="input">
+    <input type="button" id="click" onclick="check(input)" value="Submit">
+   </form> 
+   <div id="output">
+    <p id="change"></p>
+   </div>
+    <script>
+        let input = document.getElementById('input');
+        let click = document.getElementById("click");
+        let change = document.getElementById('change');
+        function check(input) {
+            let regex = /[\W_]/g;
+         let value = input.value.toLowerCase().replace(regex, "");
+         console.log(value)
+         //let low = value.toLowerCase().replace(regex, "");
+         let revers = value.split('').reverse();
+         let test = revers.join('');
+         console.log(test)
+         if(value == test) {
+          console.log('yep')
+          change.innerHTML = 'Thats a Palindrome!'
+        } else {
+            change.innerHTML = "That is not Palindrome"
+        }
+}
+    </script>
+</body>
+</html>
